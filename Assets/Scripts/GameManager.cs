@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     public void Play() {
         playing = true;
         Level.Start();
-        AdManager.Instance.ShowBanner();
     }
 
     public void Stop() {
@@ -78,9 +77,6 @@ public class GameManager : MonoBehaviour
         //Increase
         if(Level.level == PlayerPrefs.GetInt("level") && !showingCompleted) {
             PlayerPrefs.SetInt("level", Level.level + 1);
-            PlayGames.AddScoreToLeaderboard(GPGSIds.leaderboard_level, PlayerPrefs.GetInt("level"));
-            CloudVariables.Level = PlayerPrefs.GetInt("level");
-            PlayGames.Instance.SaveData();
         }
 
         if(Level.level == 0) {
@@ -118,41 +114,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CompleteAchievements(int level) {
-        int maxLevel = PlayerPrefs.GetInt("level");
-        if(level == maxLevel - 1) {//New highscore
-            switch(level) {
-                case 10:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_10);
-                    break;
-                case 20:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_20);
-                    break;
-                case 50:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_50);
-                    break;
-                case 100:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_100);
-                    break;
-                case 200:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_200);
-                    break;
-                case 500:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_500);
-                    break;
-                case 1000:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_1_000);
-                    break;
-                case 2000:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_2_000);
-                    break;
-                case 5000:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_5_000);
-                    break;
-                case 9999:
-                    PlayGames.UnlockAchievement(GPGSIds.achievement_level_9_999);
-                    break;
-            }
-        }
+        
     }
 
     public void LoadLevel(int level) {

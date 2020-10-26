@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour
     }
 
     public void ShowAchievements() {
-        PlayGames.ShowAchievementsUI();
+
     }
 
     public void ChangeSound() {
@@ -82,7 +82,7 @@ public class Menu : MonoBehaviour
     }
 
     public void ShowLeaderboard() {
-        PlayGames.ShowLeaderboardUI();
+
     }
 
 }
